@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+<!-- 1.使用script标签 type一定要写 -->
+<script type="text/x-template" id="isme1">
+  <div><h2>是我1</h2></div>
+</script>
+
+<!-- 2.使用template标签 常用-->
+<template id="isme2">
+  <div><h2>是我2</h2></div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  cpn:{template:'#isme2'}
+  	}
+  })
+
+</script>
+</body>
+</html>

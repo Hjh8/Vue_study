@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!-- 使用组件的三步骤  (组件构造要放在构造vue对象前面)
+        1.创建组件构造器对象
+           const cpnC = Vue.extend({template:'模板内容'}) 可以把 ' ' 换成 ` `(里面可换行)
+        2.注册组件
+            Vue.component('组件名',组件构造器对象)  这里的是全局组件，任何一个vue对象都可以使用
+            若要创建局部组件，需在vue实例里面定义components属性的template
+        3.使用组件
+            <div><组件名></组件名></div>
+            tips:使用组件时需要使用div或者p标签包裹
+    ！！！组件的语法糖
+            Vue.component('组件名',{template:'模板内容'})
+ -->
+<body>
+<div id="app">
+  <mycpn></mycpn>
+  <cpn/> //如果不用添加什么内容可以用单标签
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+
+  <!--  创建组件构造器对象  -->
+  const cpnC_quanju = Vue.extend({
+    template:`
+      <div><h2>我是全局组件</h2></div>
+    `
+    })
+  <!--  注册组件  -->
+   Vue.component('mycpn',cpnC_quanju)
+
+  const cpnC_jubu = Vue.extend({
+    template:`
+      <div><h2>我是局部组件</h2></div>
+    `
+    })
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  // 组件名:构造器对象
+  	  cpn:cpnC_jubu
+  	  //使用语法糖
+  	  //cpn:{template:'模板内容'}
+  	}
+  })
+
+</script>
+</body>
+</html>

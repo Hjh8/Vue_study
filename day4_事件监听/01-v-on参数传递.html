@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!-- 事件监听并且不需要传参数的时候可以省略() -->
+<!-- 需要传一个参数但是没加()，默认传event对象。如果加了()但没传参数，则形参为undefined-->
+  <button @click="increment">+</button>
+<!-- 如果需要传递event对象，则传递参数$event -->
+  <button @click="decrement('increment',$event)">-</button>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  	  counter: 0
+  	},
+  	methods:{
+  	  increment(name){
+  	    console.log('========',name);
+  	  },
+  	  decrement(name,event){
+  	    console.log('========',name,event);
+  	  }
+  	}
+  })
+</script>
+</body>
+</html>

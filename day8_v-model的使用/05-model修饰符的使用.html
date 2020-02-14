@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--  修饰符lazy  失去焦点时才会绑定-->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+  <!--  修饰符number  c-model默认返回的string -->
+  <input type="number" v-model.number="age">
+  <h2>{{age}}-{{typeof age}}</h2>
+
+  <!--  修饰符trim  去掉字符串两边的空格后返回-->
+  <input type="text" v-model.trim="message">
+  <h2>{{message}}</h2>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 message: 'hailo',
+  		 age:0
+  	},
+  	methods:{
+  	  inpurtext(event){
+  	    this.message = event.target.value;
+  	  }
+  	}
+  })
+</script>
+</body>
+</html>

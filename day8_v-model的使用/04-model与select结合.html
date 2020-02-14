@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <select v-model="names" multiple>
+    <option v-for="item in name" :value="item">{{item}}</option>
+  </select>
+  <h1>{{names}}</h1>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 name: ['hanh','huang','jian'],
+  		 names:[]
+  	}
+  })
+</script>
+</body>
+</html>

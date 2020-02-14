@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!--  如何进行父子间的通信？
+        通过props向子组件传递数据
+        通过自定义事件($emit)向父组件发送信息
+-->
+<body>
+<div id="app">
+  <cpn :cmessage="message"></cpn>
+</div>
+
+<template id="isme">
+  <div>
+    <h2>{{cmessage}}</h2>
+  </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const cpn = {
+  	template:'#isme',
+    <!--  	props:['cmessage']   -->
+    props:{
+    <!--      cmessage:String, // 指定类型-->
+      cmessage:{ // 指定类型和默认值
+        type:Array,
+        default:[], //可以是一个函数(包含于对象{})
+        required:true  // required 指定cmessage是否是必须要传入的参数
+      },
+    }
+  }
+
+  <!--  vue实例可看成父组件 -->
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  	  message:['hang']
+  	},
+  	components:{
+  	  cpn
+  	}
+  })
+</script>
+</body>
+</html>

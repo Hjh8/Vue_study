@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+	{{message}}
+  <h2>{{name}}</h2>
+</div>
+<div id="zzz">{{message}}</div>
+
+<script src="../vue.js"></script>
+
+
+<script>
+//MVVM model view viewmodel     model跟view之间通过viewmodel监听
+	//let(定义变量) const(定义常量)
+	//声明式编程
+	const app = new Vue({
+		el: '#app', // 用于挂载要管理的元素,参数可以是string或htmlelement
+		data:{	//定义数据，参数可以是Object或Function
+			message:'nihao',
+			name:'heiheihei'
+		}
+<!--		在创建vue对象的属性的同时还会进行回调函数(Vue规定好的)-->
+	})
+
+</script>
+
+</body>
+</html>

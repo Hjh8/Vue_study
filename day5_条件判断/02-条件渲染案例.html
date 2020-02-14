@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!-- Vue在进行DOM渲染之前会先创建一个虚拟DOM，互斥的标签会进行复用，需要用key来区别 -->
+  <span v-if="isUsername">
+    <label for="username">用户账号</label>
+<!--  key的作用主要是为了高效的更新虚拟DOM  -->
+    <input type="text" id="username" placeholder="用户账号" key="username">
+  </span>
+  <span v-else>
+    <label for="usermail">用户邮箱</label>
+    <input type="text" id="usermail" placeholder="用户邮箱" key="usermail">
+  </span>
+  <button @click="isUsername = !isUsername">切换登录</button>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 isUsername:true
+  	}
+  })
+</script>
+</body>
+</html>

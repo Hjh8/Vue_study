@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- push('')  -->
+<div id="app">
+  <ul>
+    <li v-for="book in books" :key="book">{{book}}</li>
+  </ul>
+  <button @click="btnclick">点我</button>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  	  books:['C语言','java','python']
+  	},
+  	methods:{
+  	  btnclick(){
+  	    //this.books.push('aaa')  //在末尾加一个或多个元素
+  	    //this.books.unshift('a','b')  //在开头加一个或多个元素
+  	    //this.books.pop()  //删除最后一个元素
+  	    //this.books.shift()  //删除第一个元素
+  	    //splice(start[,end,...replace]) 删除start开始的第end个元素，如果有第三个参数则是替换操作(...表示可变参数)
+  	    //this.books.splice(1,2,'x','j','k')
+  	    //this.books.splice(1,0,'hang') //在第2个位置插入元素
+  	    //this.books.sort() //排序
+  	    this.books.reverse()  //翻转
+
+  	    //通过索引值修改数组的值不是响应式的
+  	    //books[0] = 'js'
+  	  }
+  	}
+  })
+</script>
+</body>
+</html>

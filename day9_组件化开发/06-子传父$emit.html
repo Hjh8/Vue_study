@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!--  如何进行父子间的通信？
+        通过props向子组件传递数据
+        通过自定义事件($emit)向父组件发送信息
+-->
+<body>
+<div id="app">
+  <!-- 因为事件对象是自定义的所以就不会默认传event -->
+  <cpn @father_click="click"></cpn>
+</div>
+
+<template id="isme">
+  <div>
+    <button v-for="book in books" @click="Son_click(book)">
+      {{book}}
+    </button>
+  </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const cpn = {
+  	template:'#isme',
+  	data(){
+  	  return {
+  	    books:['C','JAVA','PYTHON']
+  	  }
+  	},
+  	methods:{
+  	  Son_click(book){
+  	    console.log('子组件----点击了',book)
+  	    this.$emit('father_click',book)
+  	  }
+  	}
+  }
+
+  <!--  vue实例可看成父组件 -->
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  cpn
+  	},
+  	methods:{
+  	  click(item){
+  	    console.log('点击了'+item);
+  	  }
+  	},
+  })
+</script>
+</body>
+</html>

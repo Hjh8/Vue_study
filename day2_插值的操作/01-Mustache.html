@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--mustache就是双大括号
+          不仅可以写变量还可以写简单的表达式
+-->
+<div id="app">
+  <h2>{{message+name}}</h2>
+  <h2>{{2 * count}}</h2>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 message: 'hailo',
+  		 name: 'hang',
+  		 count: 2
+  	}
+  })
+</script>
+</body>
+</html>

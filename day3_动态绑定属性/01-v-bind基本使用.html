@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    v-bind 动态给属性绑定变量  -->
+    <img v-bind:src="image_src">
+<!--   v-bind 的语法糖 :  -->
+    <img :src="image_src">
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 image_src: 'https://cdn.tepintehui.com/uploads/thumbnail/2018-03-13/5aa77752613a2.jpg'
+  	}
+  })
+</script>
+</body>
+</html>

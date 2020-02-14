@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!-- 冒泡是指点击了A事件但B包含A，则B事件也会被触发
+      如下:点击了button，div的点击事件也会触发-->
+<!--  <div @click="divclick">  -->
+<!--    <button @click="butclick">点我</button>   -->
+<!--  </div>  -->
+
+  <div @click="divclick">
+    <!-- .stop修饰符停止冒泡 -->
+    <button @click.stop="butclick">点我</button>
+  </div>
+
+  <form action="baidu">
+<!--    <input type="submit" value="提交" @click="submitclick">-->
+<!--    .prevent修饰符 阻止自动提交   -->
+    <input type="submit" value="提交" @click.prevent="submitclick">
+  </form>
+
+<!-- .{keycode|keyAlias}  监听某个键盘的键帽 -->
+  <input type="text" @keyup.enter="keyup_enter">
+
+<!--  .once修饰符  只进行一次回调 -->
+  <input type="button" value="点我啊" @click.once="onceclick">
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	methods:{
+  	  divclick(){
+  	    console.log('==========divclick');
+  	  },
+  	  butclick(){
+  	    console.log('==========butclick');
+  	  },
+  	  submitclick(){
+  	    console.log('==========submitclick');
+  	  },
+  	  keyup_enter(){
+  	    console.log('==========@keyup.enter只有按了回车才会响应');
+  	  },
+  	  onceclick(){
+  	    console.log('==========onceclick');
+  	  }
+  	}
+  })
+</script>
+</body>
+</html>

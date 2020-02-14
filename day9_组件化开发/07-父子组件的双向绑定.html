@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 需要双向绑定父子组件的通信时不可以使用model
+        1.定义一个中间变量来接收值
+        2.将model拆分成实质操作 即 v-bind:value 跟 v-on(响应方法中使用$emit) 结合   -->
+<div id="app">
+  <cpn :number1="num1" :number2="num2"
+       @father_change1="f_change1" @father_change2="f_change2">
+
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>props:{{number1}}</h2>
+    <h2>data:{{temp_number1}}</h2>
+    <input type="text" :value="temp_number1" @input="change1">
+    <h2>props:{{number2}}</h2>
+    <h2>date:{{temp_number2}}</h2>
+    <input type="text" :value="temp_number2" @input="change2">
+  </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 num1:1,
+  		 num2:0
+  	},
+  	methods:{
+  	  f_change1(n){
+  	    this.num1 = parseInt(n);
+  	  },
+  	  f_change2(n){
+  	    this.num2 = parseInt(n);
+  	  }
+  	},
+  	components:{
+  	  cpn:{
+  	    template:'#cpn',
+  	    props:{
+  	      number1:Number,
+  	      number2:Number,
+  	    },
+  	    data(){
+  	      return {
+  	        temp_number1:this.number1,
+  	        temp_number2:this.number2
+  	      }
+  	    },
+  	    methods:{
+  	      change1(event){
+  	        this.temp_number1 = event.target.value;
+  	        this.$emit('father_change1',this.temp_number1);
+  	      },
+  	      change2(event){
+  	        this.temp_number2 = event.target.value;
+  	        this.$emit('father_change2',this.temp_number2);
+  	      }
+  	    }
+  	  }
+  	}
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{name}}
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+<!-- 尽量用const const不可以修改对象的指向，但可以改变对象内部属性的指向 -->
+  const name = 'hang';
+  const age = 18;
+  const heigh = 120;
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+<!--  属性的增强写法	-->
+  	  name,
+  	  heigh,
+  	  age
+  	},
+  	methods:{
+<!--  方法的增强写法 省略function	  -->
+      run(){
+        console.log('我在跑')
+      }
+  	}
+  })
+  console.log(app);
+
+</script>
+</body>
+</html>

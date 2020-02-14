@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+</div>
+<!-- 组件是一个特殊的vue实例，不能引用vue实例的属性及方法，但有自己的data(但必须是一个函数),methods等-->
+<template id="isme2">
+  <div id="add">
+        <h2>当前计数:{{counter}}</h2>
+        <button @click="aaa">+</button>
+        <button @click="sub">-</button>
+    </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  cpn:{
+  	    template:'#isme2',
+  	    data(){  //必须是一个函数，避免同个组件调用多次时会造成数据同步修改
+  	      // 每次都返回不同地址的对象
+  	      return {
+  	        counter:0
+  	      }
+  	      // 如果是return obj 其中obj是已经创建好的对象，则返回的都是此对象。
+  	    },
+  	    methods:{
+  	      aaa(){this.counter++},
+          sub(){this.counter--}
+  	    }
+  	  }
+  	}
+  })
+
+</script>
+</body>
+</html>

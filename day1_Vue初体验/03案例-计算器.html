@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="add">
+        <h2>当前计数:{{counter}}</h2>
+<!--        <button v-on:click="counter++">+</button>-->
+<!--        <button v-on:click="counter&#45;&#45;">-</button>-->
+
+<!--        v-on:响应时间 click:响应类型 "方法名" v-on:click的语法糖@click-->
+        <button v-on:click="aaa">+</button>
+        <button @click="sub">-</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const add = new Vue({
+            el:'#add',
+            data:{
+                counter:0
+            },
+<!--            methods定义方法-->
+            methods:{
+<!--                在创建对象里面使用别的参数的值时要用this-->
+                aaa:function(){this.counter++;console.log('加1')},
+                sub:function(){this.counter--;console.log('减一')}
+            }
+        })
+    </script>
+</body>
+</html>

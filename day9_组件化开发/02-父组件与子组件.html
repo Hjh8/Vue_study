@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+<div id="app">
+  <cpn_fathor></cpn_fathor>
+</div>
+
+<script src="..\vue.js"></script>
+<script>
+  <!-- 谁包含了谁，谁就是爸爸 (儿子不能用爸爸的数据和方法)
+        儿子构造器需定义在爸爸构造器的前面
+   -->
+  const cpnC_son = Vue.extend({
+    template:`
+      <div><h2>我是儿子组件</h2></div>
+    `
+    })
+
+  const cpnC_father = Vue.extend({
+    template:`
+      <div>
+        <h2>我是爸爸组件</h2>
+        <cpnSon></cpnSon>
+      </div>
+    `,
+    components:{
+      cpnSon:cpnC_son
+    }
+  })
+
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  // 组件名:构造器对象
+  	  cpn_fathor:cpnC_father
+  	}
+  })
+
+</script>
+</body>
+</html>
