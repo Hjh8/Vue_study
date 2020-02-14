@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 具名插槽就是有名字的插槽，需要扩展时可根据名字来扩展对应的slot -->
+<div id="app">
+  <cpn>
+    <h2>没有名字的我修改的是默认值</h2>
+    <h2 slot="middle">我来修改中间的啦</h2>
+    <h2 slot="left">我来修改左边的啦</h2>
+  </cpn>
+</div>
+
+<template id="isme2">
+  <div id="add">
+    <slot>我是个默认值</slot>
+    <slot name="left">左边</slot>
+    <slot name="middle">中间</slot>
+    <slot name="right">右边</slot>
+  </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  cpn:{
+  	    template:'#isme2',
+  	  }
+  	}
+  })
+
+</script>
+</body>
+</html>

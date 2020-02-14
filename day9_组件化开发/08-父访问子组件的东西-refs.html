@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!--  父组件访问子组件
+           $children(一般不用)
+           $refs
+-->
+<body>
+<div id="app">
+  <div>
+    <cpn ref="son_ref"></cpn>
+    <button @click="btnclick">按钮</button>
+  </div>
+</div>
+
+<template id="isme">
+  <div>我是子组件</div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const cpn = {
+  	template:'#isme',
+  	data(){
+  	  return {
+  	    name:'儿子的名字'
+  	  }
+  	},
+    methods:{
+      show(){
+        console.log('儿子是我')
+      }
+    }
+  }
+
+  <!--  vue实例可看成父组件 -->
+  const app = new Vue({
+  	el: '#app',
+  	methods:{
+  	  btnclick(){
+        <!--  	   1.$children   -->
+        <!--  	    console.log(this.$children);-->
+        <!--  	    console.log(this.$children[0].show());-->
+        <!--  	    console.log(this.$children[0].name);-->
+
+        // 2.$refs 需在组件上定义ref='' 不然默认空对象
+        console.log(this.$refs)
+        console.log(this.$refs.son_ref)
+        console.log(this.$refs.son_ref.show())
+        console.log(this.$refs.son_ref.name)
+  	  }
+  	},
+  	components:{
+  	  cpn
+  	}
+  })
+</script>
+</body>
+</html>

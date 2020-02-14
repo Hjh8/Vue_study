@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!--  子组件访问父组件 ===>  $parent(一般不用)
+      子组件访问根组件 ===>  $root(比较少用)
+-->
+<body>
+<div id="app">
+  <div>
+    <cpn></cpn>
+  </div>
+</div>
+
+<template id="isme">
+  <div>
+    我是子组件
+    <button @click="btnclick">按钮</button>
+  </div>
+
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const cpn = {
+  	template:'#isme',
+  	methods:{
+  	  btnclick(){
+  	    console.log(this.$parent.show())
+  	    console.log(this.$root.show())
+  	  }
+  	}
+  }
+
+  <!--  vue实例可看成父组件 -->
+  const app = new Vue({
+  	el: '#app',
+  	methods:{
+  	  show(){
+  	    console.log('我是爸爸');
+  	  }
+  	},
+  	components:{
+  	  cpn
+  	}
+  })
+</script>
+</body>
+</html>

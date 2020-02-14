@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn><button>我是扩展的按钮</button></cpn>
+  <cpn><p>我是扩展的p</p></cpn>
+</div>
+<!-- slot(插槽) 可以更好的扩展功能,可以更灵活的加入想要的功能-->
+<template id="isme2">
+  <div id="add">
+    <h2>我是基础的</h2>
+    <slot></slot>
+  </div>
+<!--  <slot>我是个默认值</slot>-->
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	components:{
+  	  cpn:{
+  	    template:'#isme2',
+  	  }
+  	}
+  })
+
+</script>
+</body>
+</html>

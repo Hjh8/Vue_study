@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn v-show="isShow"></cpn>
+</div>
+
+<template id="isme">
+  <h2>我是第一行,第二行不会显示。因为使用变量的时候，会看你是在哪个模板下的变量,然后在这个模板下查找</h2>
+  <h2 v-show="isShow">我是第二行，第一行才会显示</h2>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+       <!--  这里的isShow只会在vue实例的模板中才有效	-->
+  		 isShow:true
+  	},
+  	components:{
+  	    cpn:{
+  	      template:'#isme',
+  	      data(){
+  	        return{
+  	          <!--  这里的isShow只会在id为isme的组件模板中才有效	-->
+  	          isShow:false
+  	        }
+  	      }
+  	    }
+  	}
+  })
+</script>
+</body>
+</html>
