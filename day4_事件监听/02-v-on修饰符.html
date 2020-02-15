@@ -24,7 +24,7 @@
   </form>
 
 <!-- .{keycode|keyAlias}  监听某个键盘的键帽 -->
-  <input type="text" @keyup.enter="keyup_enter">
+  <input type="text" @keyup.enter="keyupEnter">
 
 <!--  .once修饰符  只进行一次回调 -->
   <input type="button" value="点我啊" @click.once="onceclick">
@@ -44,7 +44,7 @@
   	  submitclick(){
   	    console.log('==========submitclick');
   	  },
-  	  keyup_enter(){
+  	  keyupEnter(){
   	    console.log('==========@keyup.enter只有按了回车才会响应');
   	  },
   	  onceclick(){

@@ -9,7 +9,10 @@
     <h2>{{getfullname()}}</h2>
     <h2>{{fullname}}</h2>
 </div>
-
+<!-- computed与methods的区别
+        computed有自己的缓存空间，只会编译一次
+        methods调用该方法时每次都会编译一次
+ -->
 <script src="..\vue.js"></script>
 <script>
   const app = new Vue({

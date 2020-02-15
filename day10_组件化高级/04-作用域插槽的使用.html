@@ -11,7 +11,7 @@
   <cpn>
     <!--  相当于创建一个slot对象，然后用这个对象去访问传递过来的参数 -->
     <template v-slot="myslot">
-      <i>{{myslot.data}}</i>
+      <i>{{myslot.message}}</i>
     </template>
   </cpn>
 </div>
@@ -21,7 +21,7 @@
     <h2>我是组件部分</h2>
     <!--  相当于把cpn的message作为实参传递给slot对象的data形参
           并对其进行动态绑定  -->
-    <slot :data="message">
+    <slot :message="message">
       我这里可以直接使用message(cpn里定义的数据)
       <br>
       {{message}}
@@ -33,10 +33,6 @@
 <script>
   const app = new Vue({
   	el: '#app',
-  	data:{
-  		 message: 'hailo',
-  		 name: 'hang'
-  	},
   	components:{
   	  cpn:{
         template:'#isme',

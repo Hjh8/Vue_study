@@ -10,7 +10,7 @@
 <!-- 需要传一个参数但是没加()，默认传event对象。如果加了()但没传参数，则形参为undefined-->
   <button @click="increment">+</button>
 <!-- 如果需要传递event对象，则传递参数$event -->
-  <button @click="decrement('increment',$event)">-</button>
+  <button @click="decrement('decrement',$event)">-</button>
 </div>
 
 <script src="..\vue.js"></script>
