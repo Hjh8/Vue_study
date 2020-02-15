@@ -5,6 +5,49 @@
   <title>Title</title>
 </head>
 <body>
+<div id="app">
+  <cpn></cpn>
+  <h2>以下部分是作用域插槽的展示</h2>
+  <cpn>
+    <!--  相当于创建一个slot对象，然后用这个对象去访问传递过来的参数 -->
+    <template v-slot="myslot">
+      <i>{{myslot.data}}</i>
+    </template>
+  </cpn>
+</div>
 
+<template id="isme">
+  <div>
+    <h2>我是组件部分</h2>
+    <!--  相当于把cpn的message作为实参传递给slot对象的data形参
+          并对其进行动态绑定  -->
+    <slot :data="message">
+      我这里可以直接使用message(cpn里定义的数据)
+      <br>
+      {{message}}
+    </slot>
+  </div>
+</template>
+
+<script src="..\vue.js"></script>
+<script>
+  const app = new Vue({
+  	el: '#app',
+  	data:{
+  		 message: 'hailo',
+  		 name: 'hang'
+  	},
+  	components:{
+  	  cpn:{
+        template:'#isme',
+        data(){
+          return {
+            message:'我是由组件传给slot的数据'
+          }
+        }
+      }
+  	}
+  })
+</script>
 </body>
 </html>
