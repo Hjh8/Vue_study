@@ -24,8 +24,20 @@
 		data:{	// 定义数据，参数可以是Object或Function
 			message:'nihao',
 			name:'heiheihei'
+		},
+//  在创建vue对象的属性的同时还会进行回调生命周期函数(Vue规定好的)
+		created(){
+			console.log('我是组件创建后自动执行的回调函数');
+		},
+		mounted(){
+			console.log('将template挂载到整个DOM上后执行的回调函数');
+		},
+		updated(){
+			console.log('我是界面发生更新后执行的回调函数');
+		},
+		destroyed(){
+			console.log('我是组件销毁时调用的函数')
 		}
-<!--  在创建vue对象的属性的同时还会进行回调生命周期函数(Vue规定好的)  -->
 	})
 
 </script>

@@ -23,18 +23,18 @@
 <script>
   const cpn = {
   	template:'#isme',
-    <!--  	props:['cmessage']   -->
+    //props:['cmessage']
     props:{
-    <!--      cmessage:String, // 指定类型-->
+      //cmessage:String, // 指定类型
       cmessage:{ // 指定类型和默认值
         type:Array,
         default:[], //可以是一个函数(包含于对象{})
         required:true  // required 指定cmessage是否是必须要传入的参数
-      },
+      }
     }
   }
 
-  <!--  vue实例可看成父组件 -->
+  // vue实例可看成父组件
   const app = new Vue({
   	el: '#app',
   	data:{
