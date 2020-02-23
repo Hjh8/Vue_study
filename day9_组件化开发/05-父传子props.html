@@ -11,6 +11,8 @@
 <body>
 <div id="app">
   <cpn :cmessage="message"></cpn>
+  <!-- 如果不动态绑定，只会当成字符串传过去 -->
+  <cpn cmessage="message"></cpn>
 </div>
 
 <template id="isme">

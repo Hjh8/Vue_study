@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body>
+<body> 
 <!-- 具名插槽就是有名字的插槽，需要扩展时可根据名字来扩展对应的slot -->
 <div id="app">
   <cpn>
-    <h2>没有名字的我修改的是默认值</h2>
-    <h2 slot="middle">我来修改中间的啦</h2>
-    <h2 slot="left">我来修改左边的啦</h2>
+    <template><h2>没有名字的我修改的是默认值</h2></template>
+    <!-- <template v-slot:middle><h2>我来修改中间的啦</h2></template> -->
+    <template #middle>
+          <h2>我来修改中间的啦</h2>
+          <h2>我是来帮忙修改中间的</h2>
+    </template>
+    <!-- <h2 slot="middle">我来修改中间的啦</h2>
+    <h2 slot="middle">我帮忙修改中间的啦</h2> -->
+    <template #left>
+      <h2>我来修改左边的啦</h2>
+    </template>
   </cpn>
 </div>
 

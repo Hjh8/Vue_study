@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="app">
-  <select v-model="names" multiple>
+  <select v-model="names">
     <option v-for="item in name" :value="item">{{item}}</option>
   </select>
   <h1>{{names}}</h1>

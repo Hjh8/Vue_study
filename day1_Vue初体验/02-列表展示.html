@@ -5,21 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-    <div id="app">
-        {{movies}}
-        <ul>
-            <li v-for="item in movies">{{item}}</li>
-        </ul>
-    </div>
-    <script src="../vue.js"></script>
-    <script>
-        const app = new Vue({
-            el:'#app',
-            data:{
-                message:'hailo',
-                movies:['haiwang', 'xinjichuanyue','盗梦空间']
-            }
-        })
-    </script>
+    <!--  -->
+<div id="app">
+    {{movies}}
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hailo',
+            movies:['haiwang', 'xinjichuanyue','盗梦空间']
+        }
+    })
+</script>
 </body>
 </html>

@@ -36,7 +36,7 @@ const app = new Vue({
     computed:{
         totalPrice(){
             let total_price = 0
-            // for(let i in this.books) 取得是下标
+            // for(let i in this.books)取得是下标
             for(let i of this.books){
                 total_price += i.price*i.count
             }

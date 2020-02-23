@@ -5,8 +5,8 @@
   <title>Title</title>
 </head>
 <!--  父组件访问子组件
-           $children(一般不用)
-           $refs
+           this.$children[index]
+           this.$refs.子组件标签的ref名字
 -->
 <body>
 <div id="app">
@@ -36,15 +36,15 @@
     }
   }
 
-  <!--  vue实例可看成父组件 -->
+  //  vue实例可看成父组件 
   const app = new Vue({
   	el: '#app',
   	methods:{
   	  btnclick(){
-        <!--  	   1.$children   -->
-        <!--  	    console.log(this.$children);-->
-        <!--  	    console.log(this.$children[0].show());-->
-        <!--  	    console.log(this.$children[0].name);-->
+        //	 1.$children  
+        //   	 console.log(this.$children);
+        //   	 console.log(this.$children[0].show());
+        //   	 console.log(this.$children[0].name);
 
         // 2.$refs 需在组件上定义ref='' 不然默认空对象
         console.log(this.$refs)

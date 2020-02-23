@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //如果有一天需要两个都请求成功之后才能进行下一步操作
+    // Promise提供了一个all(iterator)方法
+    Promise.all([
+      new Promise((resolve,reject) => {
+        setTimeout(() => {
+          resolve({name:'hang',message:'我是第0个元素'})
+        }, 2000);
+      }),
+      new Promise((resolve,reject) => {
+        setTimeout(() => {
+          resolve('我是第1个元素')
+        }, 1000);
+      })
+    ]).then(result => {
+      console.log(result)
+      console.log(result[0])
+      console.log(result[0].name)
+      console.log(result[1])
+    })
+  </script>
+</body>
+</html>

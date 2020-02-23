@@ -11,44 +11,56 @@
             Vue.component('组件名',组件构造器对象)  这里的是全局组件，任何一个vue对象都可以使用
             若要创建局部组件，需在vue实例里面定义components属性的template
         3.使用组件
-            <div><组件名></组件名></div>
+            <div><组件名></组件名></div> 或
+            <div><组件名/></div>  如果不用添加什么内容可以用单标签
             tips:使用多个组件时需要使用div或者p标签包裹
-    ！！！组件的语法糖
+        组件的语法糖
             Vue.component('组件名',{template:'模板内容'})
  -->
 <body>
 <div id="app">
-  <mycpn></mycpn>
-  <cpn/> //如果不用添加什么内容可以用单标签
+  <!-- 使用全局组件 -->
+  <cpn_quanju></cpn_quanju>
+  <!-- 如果不用添加什么内容可以用单标签 -->
+  <!-- 使用局部组件，因为在app注册的只能在app里面用 -->
+  <cpn_jubu/>
+</div>
+
+<div id="vm">
+  <h2>我是第2个div，我不可以使用在app注册的组件</h2>
+  <cpn_quanju></cpn_quanju>
 </div>
 
 <script src="..\vue.js"></script>
 <script>
 
-  <!--  创建组件构造器对象  -->
+  //  创建组件构造器对象
   const cpnC_quanju = Vue.extend({
     template:`
       <div><h2>我是全局组件</h2></div>
     `
     })
-  <!--  注册组件  -->
-   Vue.component('mycpn',cpnC_quanju)
+  //  注册全局组件 
+  Vue.component('cpn_quanju',cpnC_quanju)
 
   const cpnC_jubu = Vue.extend({
     template:`
       <div><h2>我是局部组件</h2></div>
     `
-    })
+  })
   const app = new Vue({
   	el: '#app',
   	components:{
-  	  // 组件名:构造器对象
-  	  cpn:cpnC_jubu
+      // 注册局部组件
+      // 组件名:构造器对象
+  	  cpn_jubu:cpnC_jubu
   	  //使用语法糖
-  	  //cpn:{template:'模板内容'}
+  	  //cpn_jubu:{template:'模板内容'}
   	}
   })
-
+  new Vue({
+  	el: '#vm'
+  })
 </script>
 </body>
 </html>

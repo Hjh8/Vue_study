@@ -7,9 +7,9 @@
 <body>
 <div id="app">
   <ul>
-<!--  :key 增强性能  -->
+<!-- v-for的key是为了高效的更新虚拟DOM  -->
     <li v-for="book in books" :key="book">{{book}}</li>
-  </ul>
+  </ul> 
 <!-- 点击多次会出现key重复，这里只为了演示提高性能 -->
   <button @click="btnclick">点我</button>
 </div>

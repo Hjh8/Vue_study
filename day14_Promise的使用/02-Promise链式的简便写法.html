@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+<script>
+  // 因为resolve跟reject是可选参数，所以可以省略
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('我是resolve传递的参数')
+    }, 1000);
+  }).then((p) => { //可以传递参数，并且以后异步的操作都在这里写
+    console.log("====第一步"+p)
+    return Promise.resolve(p + '11')
+  }).then((p) => {
+    console.log("====第二步了",p)
+  })
+
+  // 终极版之resolve
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('我是resolve传递的参数')
+    }, 1000);
+  }).then((p) => { //可以传递参数，并且以后异步的操作都在这里写
+    console.log("====第一步"+p)
+    return p + '11'
+  }).then((p) => {
+    console.log("====第二步了",p)
+  })
+
+  // 终极版之resolve
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve('我是resolve传递的参数')
+    }, 1000);
+  }).then((p) => {
+    console.log("====第一步"+p)
+    throw p + '22'
+  }).catch((p) => {
+    console.log("====第二步了",p)
+  })
+</script>
+</body>
+</html>

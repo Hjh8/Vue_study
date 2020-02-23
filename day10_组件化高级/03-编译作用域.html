@@ -6,11 +6,13 @@
 </head>
 <body>
 <div id="app">
+	<!-- 这里的isShow属于vue的 -->
   <cpn v-show="isShow"></cpn>
 </div>
 
-<template id="isme">
-  <h2>我是第一行,第二行不会显示。因为使用变量的时候，会看你是在哪个模板下的变量,然后在这个模板下查找</h2>
+<template id="me">
+	<h2>我是第一行,第二行不会显示。因为使用变量的时候，会看你是在哪个模板下的变量,然后在这个模板下查找</h2>
+	<!-- 这里的isShow属于组件的 -->
   <h2 v-show="isShow">我是第二行，第一行才会显示</h2>
 </template>
 
@@ -19,7 +21,7 @@
   const app = new Vue({
   	el: '#app',
   	data:{
-       <!--  这里的isShow只会在vue实例的模板中才有效	-->
+      // 这里的isShow只会在vue实例的模板中才有效
   		 isShow:true
   	},
   	components:{
@@ -27,7 +29,7 @@
   	      template:'#isme',
   	      data(){
   	        return{
-  	          <!--  这里的isShow只会在id为isme的组件模板中才有效	-->
+  	          // 这里的isShow只会在id为me的组件模板中才有效
   	          isShow:false
   	        }
   	      }

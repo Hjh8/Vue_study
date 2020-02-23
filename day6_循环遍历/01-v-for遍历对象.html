@@ -6,6 +6,11 @@
 </head>
 <body>
 <div id="app">
+  <!-- v-for遍历数组
+    <li v-for="(value,index) in info" :key='value'>
+      {{value}}-{{index}}
+    </li>`
+   -->
   <ul>
     <li v-for="(value,key,index) in info">{{value}}-{{key}}-{{index}}</li>
   </ul>

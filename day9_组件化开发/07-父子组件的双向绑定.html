@@ -7,7 +7,8 @@
 <body>
 <!-- 需要双向绑定父子组件的通信时不可以使用model
         1.定义一个中间变量来接收值
-        2.将model拆分成实质操作 即 v-bind:value 跟 v-on(响应方法中使用$emit) 结合   -->
+				2.将model拆分成实质操作 即 v-bind:value 跟 v-on(响应方法中使用$emit) 结合
+-->
 <div id="app">
   <cpn :number1="num1" :number2="num2"
        @father_change1="f_change1" @father_change2="f_change2">

@@ -11,7 +11,9 @@
   <cpn>
     <!--  相当于创建一个slot对象，然后用这个对象去访问传递过来的参数 -->
     <template v-slot="myslot">
-      <i>{{myslot.message}}</i>
+      <!-- 需要在使用插槽的时候引用组件的数据，而不是在插槽定义时使用 -->
+      <i>我是在使用slot时调用组件的属性</i>
+      <i>{{myslot.cmessage}}</i>
     </template>
   </cpn>
 </div>
@@ -21,10 +23,11 @@
     <h2>我是组件部分</h2>
     <!--  相当于把cpn的message作为实参传递给slot对象的data形参
           并对其进行动态绑定  -->
-    <slot :message="message">
-      我这里可以直接使用message(cpn里定义的数据)
+    <slot :cmessage="message">
+      我是在定义时使用message(cpn里定义的数据)
       <br>
       {{message}}
+      {{f()}}
     </slot>
   </div>
 </template>
@@ -38,7 +41,12 @@
         template:'#isme',
         data(){
           return {
-            message:'我是由组件传给slot的数据'
+            message:'由组件传给slot的数据'
+          }
+        },
+        methods:{
+          f(){
+            console.log('我是函数')
           }
         }
       }

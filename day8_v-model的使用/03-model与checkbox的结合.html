@@ -7,8 +7,10 @@
 <body>
 <div id="app">
   <label for="agree">
-    <input type="checkbox" id="agree" v-model="isAgree">同意协议
+    <input type="checkbox" id="agree" v-model="isAgree" value="kk">
+    同意协议
   </label>
+  <h4>你选择的是{{isAgree}}</h4>
   <button :disabled="!isAgree">下一步</button>
 </div>
 

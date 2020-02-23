@@ -13,7 +13,7 @@
 <script>
   const app = new Vue({
   	el: '#app',
-  	data:{
+  	data:{ 
   		books: [
         {id: 110, name: 'c语言', price: 100 },
         {id: 111, name: 'java', price: 198 },
@@ -25,7 +25,7 @@
   	computed:{
       prices:function(){
         let bprice = 0;
-        for(let book of this.books){
+        for(let book in this.books){
             bprice += book.price
         }
         return bprice
