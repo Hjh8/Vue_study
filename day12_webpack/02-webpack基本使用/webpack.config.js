@@ -10,7 +10,7 @@ module.exports = { //单个导入文件
     mode:"development"
 }
 
-//module.exports = { //多个导入文件
+//module.exports = { //多个导入文件(多个入口)
 //    entry:{
 //        './src/mmm.js',
 //        './src/main.js',

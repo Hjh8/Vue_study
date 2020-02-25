@@ -13,5 +13,5 @@ render-> vdom-> ui
 ```
 综上所述：
 ```
-runtime-only的性能更好，代码量更少(小6kb),常用
+runtime-only的性能更好，代码量更少(小6kb),常用 
 ```

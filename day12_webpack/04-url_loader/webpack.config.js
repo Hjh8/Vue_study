@@ -23,8 +23,8 @@ module.exports = { //单个导入文件
           {
             loader: 'url-loader',
             options: {
-              limit: 38000,
-              name:'img/[name].[ext]'
+              limit: 38000, //小于这个字节就用url_loder否则用file_loder
+              name:'img/[name].[ext]' // 给图片取名字
             }
           }
         ]

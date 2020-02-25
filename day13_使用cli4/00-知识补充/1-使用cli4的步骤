@@ -1,10 +1,10 @@
 
-第一步  vue create 项目名称
+第一步  vue create 项目名称  
 第二步  填写信息
           1.通常选Manually
           2.按上下行选择东西，空格键确定选择
           3.问你是把配置文件放在另一个包中还是放在package.json
-          4.是否把这个项目的选择要不要保存成preset。
+          4.是否把这个项目的选择保存成preset。
               (保存之后在第一步会多出一个此项目选择的选项)
               若需要删除自己保存的preset，可以修改C:\Users\ASUS\.vuerc文件下的"presets"
-第三步  npm run serve
+第三步  npm run serve 运行程序

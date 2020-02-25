@@ -31,7 +31,7 @@ class Person{
 export {mul,Person}
 
 //5.export default (只能使用一次，不然会出混乱)
-// 可以在导入的时候自定义变量名来接收，也不要加{}
+// 可以在导入的时候自定义变量名来接收，也不永加{}
 const addr = '广东省'
 export default addr;
 

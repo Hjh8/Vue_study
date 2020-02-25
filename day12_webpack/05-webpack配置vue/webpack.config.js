@@ -1,5 +1,6 @@
 const path = require('path') //commonjs的导入方式
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 module.exports = { //单个导入文件
     entry:'./src/js/mmm.js',
     output:{ // 出口
@@ -39,7 +40,7 @@ module.exports = { //单个导入文件
     ]
   },
   resolve:{
-    alias:{
+    alias:{ // 给路径取别名
       'vue$':'vue/dist/vue.esm.js'
     }
   },

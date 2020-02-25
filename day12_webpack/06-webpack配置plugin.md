@@ -1,5 +1,5 @@
 
-plugin：插件，用来扩展。(loder是一个加载器)
+plugin：插件，用来扩展。(loder是一个加载器,加载文件到webpack)
 配置步骤：
 ```
     1.npm install 对应的plugin(大部分官网可以找到)
