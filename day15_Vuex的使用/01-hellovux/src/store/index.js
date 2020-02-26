@@ -5,7 +5,7 @@ import Vuex from 'vuex'
  *  vuex是一个状态管理模式。
  *        所谓状态管理简单理解就是把需要多个组件共享的变量全部存储到一个对象里
  *        也可以理解成一个全局变量，在每个函数中都可以使用
- *      
+ *  在项目中，通常会把state留在此文件中，把mutations，getters，mudules，actions都单独放在一个js文件里面
  */
 const moduleA = {
   state:{
