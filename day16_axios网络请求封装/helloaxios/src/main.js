@@ -15,10 +15,13 @@ import axios from 'axios'
 
 
 //1.axios的基本使用
-// axios({
-//   url:'http://127.0.0.1:5500/day0_js和ES6的补充/',
-//   method:'get'
-// }).then(res => {
+// axios.get(
+//   'http://127.0.0.1:5500/day0_js和ES6的补充/',
+//   {
+//     params:{
+//       name:"hang"
+//     }
+//   }).then(res => {
 //   console.log(res)
 // })
 
@@ -48,7 +51,6 @@ import axios from 'axios'
 // axios.defaults.baseURL = 'http://127.0.0.1:5500/'
 // axios.defaults.timeout = 5000
 
-
 // axios.all([
 //   axios({
 //     url:'/day10_组件化高级'
@@ -75,30 +77,39 @@ const instance1 = axios.create({
 //   timeout:100000
 // })
 
+// instance1({
+//   url:'/day1_Vue初体验'
+// }).then(res => {
+//   console.log('我是instance1实例的一个请求')
+// })
+instance1.interceptors.request.use(
+  config => {
+    console.log('我是请求拦截器====成功',config)
+      //记得要返回config
+      return config
+  },
+  err => {
+    console.log('我是请求拦截器====失败',err)
+  }
+)
 instance1({
-  url:'/day1_Vue初体验'
+  url:'/day1_Vue初体验',
+  params:{
+    type:'pop',
+    page:1
+  }
 }).then(res => {
   console.log('我是instance1实例的一个请求')
 })
 
-// instance1({
-//   url:'/day1_Vue初体验',
-//   params:{
-//     type:'pop',
-//     page:1
-//   }
-// }).then(res => {
-//   console.log('我是instance1实例的一个请求')
-// })
-
 //5.网络请求封装
-import {request} from './network/request'
-request({
-  url:'/day1_Vue初体验'
-})
-.then(
-  res => {console.log('封装请求成功',res)})
-.catch(
-  err => {console.log('封装请求失败',err)}
-)
+// import {request} from './network/request.js'
+// request({
+//   url:'/day1_Vue初体验'
+// })
+// .then(
+//   res => {console.log('封装请求成功',res)})
+// .catch(
+//   err => {console.log('封装请求失败',err)}
+// )
 

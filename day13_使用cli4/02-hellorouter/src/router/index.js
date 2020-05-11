@@ -70,7 +70,6 @@ const routes = [
 
 // 创建Router对象
 const router = new VueRouter({
-  //默认是url的hash值的修改
   mode: 'history', 
   base: process.env.BASE_URL,
   routes
@@ -79,7 +78,7 @@ const router = new VueRouter({
 // 全局前置守卫 路由跳转前回调
 router.beforeEach((to, from, next) =>{
   // to,from 都是源码中都是route
-  // 从from跳转到to
+  // to从哪里来  from去哪里  next函数，表示放行
   // 动态改标题
   document.title = to.matched[0].meta.title;
   next(); // 调用该方法后才能进入下一个钩子

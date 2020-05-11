@@ -10,9 +10,10 @@
 				2.将model拆分成实质操作 即 v-bind:value 跟 v-on(响应方法中使用$emit) 结合
 -->
 <div id="app">
-  <cpn :number1="num1" :number2="num2"
-       @father_change1="f_change1" @father_change2="f_change2">
-
+	<cpn :number1="num1" 
+		:number2="num2"
+		@father_change1="f_change1"
+		@father_change2="f_change2">
   </cpn>
 </div>
 
@@ -22,7 +23,7 @@
     <h2>data:{{temp_number1}}</h2>
     <input type="text" :value="temp_number1" @input="change1">
     <h2>props:{{number2}}</h2>
-    <h2>date:{{temp_number2}}</h2>
+    <h2>data:{{temp_number2}}</h2>
     <input type="text" :value="temp_number2" @input="change2">
   </div>
 </template>
@@ -47,6 +48,7 @@
   	  cpn:{
   	    template:'#cpn',
   	    props:{
+					//父组件要传过来的值
   	      number1:Number,
   	      number2:Number,
   	    },
