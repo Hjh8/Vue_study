@@ -7,16 +7,16 @@ module.exports = { //单个导入文件
     },
     mode:"development",
     module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          //css-loader只负责将css文件进行加载，style-loder负责将样式添加到dom中
-          //webpack使用多个loder时是从右向左的
-          { loader: "style-loader" },
-          { loader: "css-loader" }
-        ]
-      }
-    ]
+      rules: [
+        {
+          test: /\.css$/,
+          use: [
+            //css-loader只负责将css文件进行加载，style-loder负责将样式添加到dom中
+            //webpack使用多个loder时是从右向左的
+            { loader: "style-loader" },
+            { loader: "css-loader" }
+          ]
+        }
+      ]
   }
 }

@@ -21,7 +21,6 @@ const p =  new Person()
 p.run()
 
 
-
 //接收default
 import address from "./aaa.js"
 console.log(address)
