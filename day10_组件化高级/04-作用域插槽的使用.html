@@ -7,13 +7,17 @@
 <body>
 <div id="app">
   <cpn></cpn>
-  <h2>以下部分是作用域插槽的展示</h2>
+  <h2>------以下部分是作用域插槽的展示------</h2>
   <cpn>
     <!--  相当于创建一个slot对象，然后用这个对象去访问传递过来的参数 -->
-    <template v-slot="myslot">
+    <template v-slot:default='slotDemo'>
       <!-- 需要在使用插槽的时候引用组件的数据，而不是在插槽定义时使用 -->
-      <i>我是在使用slot时调用组件的属性</i>
-      <i>{{myslot.cmessage}}</i>
+      <i>---我是默认插槽的内容---</i><br>
+      <i>{{slotDemo.cmessage}}</i>
+    </template>
+    <template #myslot='slotDemo'>
+      <i>---我是myslot插槽的内容---</i><br>
+      <i>{{slotDemo.cmessage}}</i>
     </template>
   </cpn>
 </div>
@@ -24,10 +28,14 @@
     <!--  相当于把cpn的message作为实参传递给slot对象的data形参
           并对其进行动态绑定  -->
     <slot :cmessage="message">
-      我是在组件定义时使用的message(cpn里定义的数据)
+      ---------默认插槽的默认内容---------
       <br>
       {{message}}
-      {{f()}}
+    </slot>
+    <slot :cmessage="message" name='myslot'>
+      ---------myslot的默认内容---------
+      <br>
+      {{message}}
     </slot>
   </div>
 </template>
